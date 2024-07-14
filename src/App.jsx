@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Home } from "./Pages";
+import logo from "./assets/logo.svg";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
 
         <Route path="*" element={<Navigate to={"/home"} />} />
       </Routes>
+      d
     </div>
   );
 };

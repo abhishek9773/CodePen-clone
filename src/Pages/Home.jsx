@@ -4,7 +4,7 @@ import { HiChevronDoubleLeft } from "react-icons/hi2";
 import { IoSearch } from "react-icons/io5";
 import { MdHome } from "react-icons/md";
 import { Link, Route, Routes } from "react-router-dom";
-import { Projects, SignUp } from "../components";
+import { Projects, SignUp } from "../containers";
 
 const Home = () => {
   const [isSideMenu, setIsSideMenu] = useState(false);
