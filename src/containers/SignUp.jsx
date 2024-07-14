@@ -5,6 +5,7 @@ import { MdPassword } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
+import signinWithGoogle from "../utils/SigninWithGoogle";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, SetPassword] = useState("");
@@ -82,8 +83,9 @@ const SignUp = () => {
               </spen>
             </p>
           )}
-          <div className="flex gap-10 items-center justify-center">
+          <div className=" flex gap-10 items-center justify-center">
             <motion.div
+              onClick={signinWithGoogle}
               whileTap={{ scale: 0.9 }}
               className="rounded-full cursor-pointer "
             >
