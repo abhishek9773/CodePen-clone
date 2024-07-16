@@ -9,6 +9,9 @@ import { signInWithGoogle } from "../utils/SignInWithGoogle";
 import { SignInWithGithub } from "../utils/SignInWithGithub";
 import { SignUpWithGmailandPassword } from "../utils/SignUpWithGmailAndPassword";
 import { SignInWithEmailAndPassword } from "../utils/SignInWithEmailAndPassword";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, SetPassword] = useState("");
@@ -93,12 +96,12 @@ const SignUp = () => {
           ) : (
             <p className="dark:text-white text-black">
               Doesn't Have an account{"  "}
-              <spen
+              <span
                 onClick={() => setIsLogin(!isLogin)}
                 className="text-emerald-500 cursor-pointer underline"
               >
                 Create Here
-              </spen>
+              </span>
             </p>
           )}
           <div className=" flex gap-10 items-center justify-center">
@@ -121,6 +124,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
