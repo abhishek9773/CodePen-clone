@@ -1,18 +1,23 @@
-import { getApps, getApp, initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+
+// const firebaseConfig = {
+//   apiKey: import.meta.env.VITE_API_KEY,
+//   authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+//   projectId: import.meta.env.VITE_PROJECT_ID,
+//   storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+//   messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+//   appId: import.meta.env.VITE_APP_ID,
+// };
 
 const firebaseConfig = {
-  apiKey: process.env.VITE_API_KEY,
-  authDomain: process.env.VITE_AUTH_DOMAIN,
-  projectId: process.env.VITE_PROJECT_ID,
-  storageBucket: process.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VITE_MESSAGING_SENDER_ID,
-  appId: process.env.VITE_API_ID,
+  apiKey: "AIzaSyAt1PL1UbajtfJ7gdVwsFdRjnTDWFrDVkY",
+  authDomain: "codepen-a0975.firebaseapp.com",
+  projectId: "codepen-a0975",
+  storageBucket: "codepen-a0975.appspot.com",
+  messagingSenderId: "319365585844",
+  appId: "1:319365585844:web:04889a088d06365c0cb0e1",
 };
 
-const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-export { auth, app, db };
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
