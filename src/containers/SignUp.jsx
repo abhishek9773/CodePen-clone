@@ -5,12 +5,29 @@ import { MdPassword } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
+import { signInWithGoogle } from "../utils/SignInWithGoogle";
+import { SignInWithGithub } from "../utils/SignInWithGithub";
+import { SignUpWithGmailandPassword } from "../utils/SignUpWithGmailAndPassword";
+import { SignInWithEmailAndPassword } from "../utils/SignInWithEmailAndPassword";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, SetPassword] = useState("");
   const [getEmailValidationStatus, setGetEmailValidationStatus] =
     useState(false);
   const [isLogin, setIsLogin] = useState(false);
+
+  const createNewUser = async () => {
+    if (getEmailValidationStatus) {
+      await SignUpWithGmailandPassword(email, password);
+    }
+  };
+
+  const LoginWithEmailAndPassword = async () => {
+    if (getEmailValidationStatus) {
+      await SignInWithEmailAndPassword(email, password);
+    }
+  };
+
   return (
     <div className="w-full py-6">
       <svg
@@ -48,6 +65,7 @@ const SignUp = () => {
           />
           {!isLogin ? (
             <motion.div
+              onClick={createNewUser}
               whileTap={{ scale: 0.9 }}
               className="flex items-center justify-center w-full py-3 rounded-xl hover:bg-emerald-400 cursor-pointer bg-emerald-500"
             >
@@ -56,6 +74,7 @@ const SignUp = () => {
           ) : (
             <motion.div
               whileTap={{ scale: 0.9 }}
+              onClick={LoginWithEmailAndPassword}
               className="flex items-center justify-center w-full py-3 rounded-xl hover:bg-emerald-400 cursor-pointer bg-emerald-500"
             >
               <p className="text-xl text-white"> Login</p>
@@ -64,12 +83,12 @@ const SignUp = () => {
           {!isLogin ? (
             <p className="dark:text-white text-black">
               Already have an account !{"  "}
-              <spen
+              <span
                 onClick={() => setIsLogin(!isLogin)}
                 className="text-emerald-500 cursor-pointer underline"
               >
                 Login Here
-              </spen>
+              </span>
             </p>
           ) : (
             <p className="dark:text-white text-black">
@@ -82,10 +101,11 @@ const SignUp = () => {
               </spen>
             </p>
           )}
-          <div className="flex gap-10 items-center justify-center">
+          <div className=" flex gap-10 items-center justify-center">
             <motion.div
               whileTap={{ scale: 0.9 }}
-              className="rounded-full cursor-pointer "
+              className="rounded-full  cursor-pointer "
+              onClick={signInWithGoogle}
             >
               <FcGoogle className="text-6xl " />
             </motion.div>
@@ -94,6 +114,7 @@ const SignUp = () => {
             <motion.div
               whileTap={{ scale: 0.9 }}
               className="rounded-full cursor-pointer "
+              onClick={SignInWithGithub}
             >
               <FaGithub className="text-5xl text-gray-300  " />
             </motion.div>

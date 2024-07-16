@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const UserAuthInput = (props) => {
   const [value, setValue] = useState("");
-  const [showPass, setShowPass] = useState(false);
+  const [showPass, setShowPass] = useState(true);
   const [isEmailValid, setEmailValid] = useState(false);
 
   const handleTextChange = (e) => {
@@ -35,7 +35,7 @@ const UserAuthInput = (props) => {
       >
         <props.Icon className="text-text555 text-2xl" />
         <input
-          type={props.isPass ? "password" : "text"}
+          type={props.isPass && showPass ? "password" : "text"}
           placeholder={props.placeHolder}
           className="flex-1 w-full py-2 outline-none border-none bg-transparent text-text555 text-lg"
           value={value}
