@@ -1,5 +1,5 @@
 import { GithubAuthProvider, signInWithRedirect } from "firebase/auth";
-import { auth } from "../config/Firebase.config";
+import { auth } from "../../config/Firebase.config";
 
 const provider = new GithubAuthProvider();
 export const SignInWithGithub = async () => {

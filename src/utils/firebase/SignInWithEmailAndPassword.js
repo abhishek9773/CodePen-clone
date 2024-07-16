@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../config/Firebase.config";
-import { HandleError } from "../error/HandleError";
+import { auth } from "../../config/Firebase.config";
+import { HandleError } from "../../error/HandleError";
 
 export const SignInWithEmailAndPassword = async (email, password) => {
   await signInWithEmailAndPassword(auth, email, password)

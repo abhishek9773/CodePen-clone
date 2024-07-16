@@ -5,10 +5,10 @@ import { MdPassword } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
-import { signInWithGoogle } from "../utils/SignInWithGoogle";
-import { SignInWithGithub } from "../utils/SignInWithGithub";
-import { SignUpWithGmailandPassword } from "../utils/SignUpWithGmailAndPassword";
-import { SignInWithEmailAndPassword } from "../utils/SignInWithEmailAndPassword";
+import { signInWithGoogle } from "../utils/firebase/SignInWithGoogle";
+import { SignInWithGithub } from "../utils/firebase/SignInWithGithub";
+import { SignUpWithGmailandPassword } from "../utils/firebase/SignUpWithGmailAndPassword";
+import { SignInWithEmailAndPassword } from "../utils/firebase/SignInWithEmailAndPassword";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

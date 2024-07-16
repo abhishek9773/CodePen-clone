@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../config/Firebase.config";
+import { auth } from "../../config/Firebase.config";
 import { connectStorageEmulator } from "firebase/storage";
-import { HandleError } from "../error/HandleError";
+import { HandleError } from "../../error/HandleError";
 
 export const SignUpWithGmailandPassword = async (email, password) => {
   await createUserWithEmailAndPassword(auth, email, password)

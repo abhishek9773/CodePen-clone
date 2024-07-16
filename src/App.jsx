@@ -4,10 +4,13 @@ import { Home } from "./Pages";
 import { auth, db } from "./config/Firebase.config";
 import { doc, setDoc } from "firebase/firestore";
 import { BallTriangle } from "react-loader-spinner";
+import { useDispatch } from "react-redux";
+import { SET_USER } from "./store/actions/UserAction";
 
 const App = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userCredential) => {
       if (userCredential) {
@@ -16,14 +19,15 @@ const App = () => {
           doc(db, "users", userCredential?.uid),
           userCredential?.providerData[0]
         ).then(() => {
-          // dispatch the action
+          dispatch(SET_USER(userCredential?.providerData[0]));
+          navigate("/home/projects", { replace: true });
         });
       } else {
         navigate("/home/auth", { replace: true });
       }
       setInterval(() => {
         setIsLoading(false);
-      }, 1500);
+      }, 1000);
     });
 
     // Clean up the listener on component unmount

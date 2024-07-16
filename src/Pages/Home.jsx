@@ -5,10 +5,12 @@ import { IoSearch } from "react-icons/io5";
 import { MdHome } from "react-icons/md";
 import { Link, Route, Routes } from "react-router-dom";
 import { Projects, SignUp } from "../containers";
+import { useSelector } from "react-redux";
+import { UserProfileDetails } from "../components";
 
 const Home = () => {
   const [isSideMenu, setIsSideMenu] = useState(false);
-  const [user, setUser] = useState("");
+  const user = useSelector((state) => state.user?.user);
   return (
     <>
       <div
@@ -80,7 +82,11 @@ const Home = () => {
               </Link>
             </motion.div>
           )}
-          {user && <div></div>}
+          {user && (
+            <div>
+              <UserProfileDetails />
+            </div>
+          )}
         </div>
         <div className="w-full">
           <Routes>
