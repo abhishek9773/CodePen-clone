@@ -6,6 +6,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { BallTriangle } from "react-loader-spinner";
 import { useDispatch } from "react-redux";
 import { SET_USER } from "./store/actions/UserAction";
+import { NewProject } from "./containers";
 
 const App = () => {
   const navigate = useNavigate();
@@ -53,6 +54,7 @@ const App = () => {
         <div className="w-screen h-screen flex items-start justify-start overflow-hidden">
           <Routes>
             <Route path="/home/*" element={<Home />} />
+            <Route path="/newProject" element={<NewProject />} />
 
             {/* default route */}
 
