@@ -2,11 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { Home } from "./Pages";
 import { auth, db } from "./config/Firebase.config";
-import { doc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  setDoc,
+} from "firebase/firestore";
 import { BallTriangle } from "react-loader-spinner";
 import { useDispatch } from "react-redux";
 import { SET_USER } from "./store/actions/UserAction";
 import { NewProject } from "./containers";
+import { SET_PROJECTS } from "./store/actions/projectActions";
 
 const App = () => {
   const navigate = useNavigate();
@@ -34,6 +42,18 @@ const App = () => {
     // Clean up the listener on component unmount
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    const projectQuery = query(
+      collection(db, "Projects"),
+      orderBy("id", "desc")
+    );
+    const unsubscribe = onSnapshot(projectQuery, (querySnaps) => {
+      const projectList = querySnaps.docs.map((doc) => doc.data());
+      dispatch(SET_PROJECTS(projectList));
+    });
+    return unsubscribe;
+  });
 
   return (
     <>
