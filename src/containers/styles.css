@@ -1,0 +1,19 @@
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 0; /* Hide the scrollbar */
+  height: 0; /* Hide the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Optional: Hide the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Optional: Hide the thumb */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: none; /* Hide the scrollbar */
+  -ms-overflow-style: none; /* IE and Edge */
+}

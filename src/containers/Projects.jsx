@@ -1,7 +1,7 @@
 import React from "react";
 
 const Projects = () => {
-  return <div className="text-primaryText"> Project</div>;
+  return <div className="text-primaryText">Project</div>;
 };
 
 export default Projects;
