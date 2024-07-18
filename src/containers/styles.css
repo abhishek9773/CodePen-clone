@@ -1,26 +1,19 @@
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 14px;
-  height: 8px; /* Width of the entire scrollbar */
+  width: 0; /* Hide the scrollbar */
+  height: 0; /* Hide the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-  background: "#1E1F26";
+  background: transparent; /* Optional: Hide the track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888; /* Color of the scrollbar thumb */
-  border-radius: 8px; /*Rounded corners*/
-  border: 3px solid #292828; /* Padding around the thumb */
-  size: 10;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the thumb when hovered */
+  background-color: transparent; /* Optional: Hide the thumb */
 }
 
 /* For Firefox */
 * {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color: #888 #f1f1f1; /* Thumb and track color */
+  scrollbar-width: none; /* Hide the scrollbar */
+  -ms-overflow-style: none; /* IE and Edge */
 }
